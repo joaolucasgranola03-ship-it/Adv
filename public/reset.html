@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Redefinir Senha — Medeiros</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <h2>Redefinir Senha</h2>
+        <p id="msg">Preencha a nova senha.</p>
+        <form id="resetForm">
+          <input name="password" type="password" placeholder="Nova senha (mín 6)" required>
+          <button type="submit">Redefinir</button>
+        </form>
+      </section>
+    </main>
+    <script>
+      (function(){
+        const q = new URLSearchParams(location.search);
+        const token = q.get('token');
+        const form = document.getElementById('resetForm');
+        const msg = document.getElementById('msg');
+        if(!token){ msg.textContent = 'Token ausente.'; form.style.display='none'; return; }
+        form.addEventListener('submit', async (e)=>{
+          e.preventDefault();
+          const pwd = form.password.value;
+          const res = await fetch('/api/reset-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token,password:pwd})});
+          const json = await res.json();
+          if(json.success) { msg.textContent = 'Senha redefinida com sucesso.'; form.style.display='none'; }
+          else { msg.textContent = json.error || 'Erro ao redefinir senha.' }
+        });
+      })();
+    </script>
+  </body>
+</html>

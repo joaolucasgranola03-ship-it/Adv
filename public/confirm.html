@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Confirmação de E-mail — Medeiros</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <h2>Confirmação de E-mail</h2>
+        <p id="status">Confirmando...</p>
+      </section>
+    </main>
+    <script>
+      (async function(){
+        const q = new URLSearchParams(location.search);
+        const token = q.get('token');
+        const status = document.getElementById('status');
+        if(!token){ status.textContent = 'Token ausente.'; return; }
+        try{
+          const res = await fetch('/api/confirm?token='+encodeURIComponent(token));
+          const text = await res.text();
+          status.textContent = text;
+        }catch(e){ status.textContent = 'Erro ao confirmar.' }
+      })();
+    </script>
+  </body>
+</html>

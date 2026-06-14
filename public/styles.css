@@ -1,0 +1,22 @@
+:root{
+  --red:#c8102e;
+  --bg:#f7f7f8;
+  --card:#ffffff;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:var(--bg);margin:0;color:#222}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.logo{height:48px}
+nav button{margin-left:8px;padding:8px 12px;border:1px solid #eee;background:transparent;border-radius:6px;cursor:pointer}
+.container{max-width:960px;margin:28px auto;padding:0 16px}
+.card{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 20px rgba(12,12,12,0.04);margin-bottom:16px}
+.forms{display:flex;gap:12px}
+form{display:flex;flex-direction:column;gap:8px;min-width:220px}
+input{padding:10px;border:1px solid #ddd;border-radius:8px}
+button{background:var(--red);color:#fff;border:none;padding:10px;border-radius:8px;cursor:pointer}
+.hidden{display:none}
+.service{border-top:1px solid #f0f0f0;padding-top:12px;margin-top:12px}
+img#pixQr{width:200px;height:200px;border:1px solid #eee;border-radius:8px}
+.footer{text-align:center;padding:20px;color:#666}
+
+@media(max-width:720px){.forms{flex-direction:column}}

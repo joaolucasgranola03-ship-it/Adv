@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Medeiros Advocacia</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <img src="/logo.svg" alt="Medeiros" class="logo">
+      <nav>
+        <button id="btnServices">Serviços</button>
+        <button id="btnPix">PIX</button>
+        <button id="btnSupport">Suporte</button>
+      </nav>
+      <div id="userArea"></div>
+    </header>
+
+    <main class="container">
+      <section id="auth" class="card">
+        <h2>Entre ou cadastre-se</h2>
+        <div class="forms">
+          <form id="registerForm">
+            <h3>Cadastro</h3>
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="password" type="password" placeholder="Senha (mín 6)" required>
+            <button type="submit">Cadastrar</button>
+          </form>
+
+          <form id="loginForm">
+            <h3>Login</h3>
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="password" type="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+          </form>
+        </div>
+        <div style="margin-top:8px">
+          <button id="requestReset">Esqueci minha senha</button>
+        </div>
+      </section>
+
+      <section id="services" class="card hidden">
+        <h2>Serviços</h2>
+        <div class="service">
+          <h3>Consultoria Jurídica Online</h3>
+          <p>Atendimento via WhatsApp ou vídeo chamada.</p>
+          <button class="hireBtn" data-service="Consultoria Jurídica Online">Contratar</button>
+        </div>
+        <div class="service">
+          <h3>Elaboração de Documentos</h3>
+          <p>Contratos, petições e documentos oficiais.</p>
+          <button class="hireBtn" data-service="Elaboração de Documentos">Contratar</button>
+        </div>
+      </section>
+
+      <section id="pix" class="card hidden">
+        <h2>Pagamento via PIX</h2>
+        <p>Chave PIX: <strong>joaolucasayressoares953@gmail.com</strong></p>
+        <img id="pixQr" alt="QR PIX" src="" />
+        <p>Ou use a chave acima para transferência.</p>
+        <div style="margin-top:12px">
+          <button id="createCharge">Criar cobrança</button>
+        </div>
+        <form id="pixForm">
+          <input name="amount" type="number" step="0.01" placeholder="Valor" required>
+          <input name="payer_email" type="email" placeholder="Seu email (opcional)">
+          <button type="submit">Registrar pagamento</button>
+        </form>
+      </section>
+
+      <section id="support" class="card hidden">
+        <h2>Suporte</h2>
+        <p>Atendimento direto via WhatsApp: <a id="waLink" href="#">Abrir WhatsApp</a></p>
+        <p>Número: +55 63 99110-5288</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Medeiros Advocacia — Atendimento online e seguro</p>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
